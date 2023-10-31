@@ -3,7 +3,7 @@
     "tasks": [
         // Copilot Chat
         {
-            "label": "run (Copilot Chat)",
+            "label": "run (Preparation Chat - Customer X)",
             "detail": "Run all copilot chat components",
             "group": "test",
             "dependsOn": ["run (CopilotChatWebApi)", "run (CopilotChatApp)"],

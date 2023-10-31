@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved.
 
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useIsAuthenticated, useMsal } from '@azure/msal-react';
-import { FluentProvider, Subtitle1, makeStyles, shorthands, tokens } from '@fluentui/react-components';
+import { FluentProvider, Subtitle1, Subtitle2, makeStyles, shorthands, tokens } from '@fluentui/react-components';
 
 import * as React from 'react';
 import { useEffect } from 'react';
@@ -27,10 +27,14 @@ export const useClasses = makeStyles({
     },
     header: {
         alignItems: 'center',
-        backgroundColor: tokens.colorBrandForeground2,
+        backgroundColor: tokens.colorPaletteBlueForeground2, //tokens.colorBrandForeground2,
         color: tokens.colorNeutralForegroundOnBrand,
         display: 'flex',
         '& h1': {
+            paddingLeft: tokens.spacingHorizontalXL,
+            display: 'flex',
+        },
+        '& h2': {
             paddingLeft: tokens.spacingHorizontalXL,
             display: 'flex',
         },
@@ -178,7 +182,8 @@ const Chat = ({
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <Subtitle1 as="h1">Chat Copilot</Subtitle1>
+                <Subtitle2 as="h2">Preparing CSMs to #DoMoreWithLess</Subtitle2>
+                <Subtitle1 as="h1">Prep2Go</Subtitle1>
                 {appState > AppState.SettingUserInfo && (
                     <div className={classes.cornerItems}>
                         <div className={classes.cornerItems}>
@@ -192,6 +197,7 @@ const Chat = ({
                     </div>
                 )}
             </div>
+
             {appState === AppState.ProbeForBackend && <BackendProbe onBackendFound={onBackendFound} />}
             {appState === AppState.SettingUserInfo && (
                 <Loading text={'Hang tight while we fetch your information...'} />
